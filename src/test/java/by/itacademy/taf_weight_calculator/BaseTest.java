@@ -1,20 +1,20 @@
 package by.itacademy.taf_weight_calculator;
 
 
-import org.junit.After;
-import org.junit.Before;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class BaseTest {
     WebDriver driver;
 
-    @Before
+    @BeforeEach
     public void setWebDriver() {
         driver = new ChromeDriver();
     }
 
-    @After
+    @AfterEach
     public void closeWebDiver() {
         driver.quit();
     }
