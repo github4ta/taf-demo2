@@ -5,6 +5,10 @@ public class WeightCalculatorPage{
     public final String A_LITTLE_MORE_MASS = "Умеренный избыток массы тела";
     public final String TOO_MUCH_MASS = "Значительный избыток массы тела, тучность";
     public final String TOO_LITTLE_MASS = "Слишком малая масса тела";
+    public final String ERROR_MESSAGE_INCORRECT_HEIGHT = "Рост должен быть в диапазоне 50-300 см.";
+    public final String ERROR_MESSAGE_NO_NAME = "Не указано имя.";
+    public final String ERROR_MESSAGE_INCORRECT_MASS = "Вес должен быть в диапазоне 3-500 кг.";
+    public final String ERROR_MESSAGE_NO_GENDER = "Не указан пол.";
     private String xPathInputName = "//input[@name='name']";
     private String xPathInputHeight = "//input[@name='height']";
     private String xPathInputWeight = "//input[@name='weight']";
