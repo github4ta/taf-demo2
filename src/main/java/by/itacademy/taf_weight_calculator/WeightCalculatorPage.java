@@ -15,6 +15,7 @@ public class WeightCalculatorPage{
     private String maleRadioButton = "//input[@type='radio' and @value='m']";
     private String femaleRadioButton = "//input[@type='radio' and @value='f']";
     private String calculateWeightButton = "//input[@type='submit']";
+
     private String xPathName = "//table[@border='0']/tbody/tr[2]/td[1]";
     private String xPathHeight = "//table[@border='0']/tbody/tr[3]/td[1]";
     private String xPathWeight = "//table[@border='0']/tbody/tr[4]/td[1]";
