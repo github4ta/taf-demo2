@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class WeightCalculatorPage{
+    public final String URL = "https://svyatoslav.biz/testlab/wt/index.php";
     public final String IDEAL_MASS = "Идеальная масса тела";
     public final String A_LITTLE_MORE_MASS = "Умеренный избыток массы тела";
     public final String TOO_MUCH_MASS = "Значительный избыток массы тела, тучность";
@@ -36,5 +37,8 @@ public class WeightCalculatorPage{
         By byInputName = By.xpath(xPathInputName);
         WebElement webElementInputName = driver.findElement(byInputName);
         webElementInputName.sendKeys(name);
+    }
+    public void openCalculatorPage(){
+        driver.navigate().to(URL);
     }
 }
