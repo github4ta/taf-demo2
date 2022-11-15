@@ -57,7 +57,7 @@ public class WeightCalculatorPage {
         webElementInputHeight.sendKeys(weight);
     }
 
-    public void countWeight() {
+    public void clickSubmitButton() {
         By byCalculateWeight = By.xpath(calculateWeightButton);
         WebElement webElementClickCalculateWeightButton = driver.findElement(byCalculateWeight);
         webElementClickCalculateWeightButton.click();
