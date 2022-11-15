@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 import static by.itacademy.taf_weight_calculator.Gender.FEMALE;
 
-public class WeightCalculatorPage{
+public class WeightCalculatorPage {
     public final String URL = "https://svyatoslav.biz/testlab/wt/index.php";
     public final String IDEAL_MASS = "Идеальная масса тела";
     public final String A_LITTLE_MORE_MASS = "Умеренный избыток массы тела";
@@ -32,17 +32,21 @@ public class WeightCalculatorPage{
     private String xPathNameBottomTable = "//tr[@height='50']/td";
     private String xPathResultMessage = "//tbody/tr[2]/td[2]";
     WebDriver driver;
+
     public WeightCalculatorPage(WebDriver driver) {
         this.driver = driver;
     }
-    public void typeInputName(String name){
+
+    public void typeInputName(String name) {
         By byInputName = By.xpath(xPathInputName);
         WebElement webElementInputName = driver.findElement(byInputName);
         webElementInputName.sendKeys(name);
     }
-    public void openCalculatorPage(){
+
+    public void openCalculatorPage() {
         driver.navigate().to(URL);
     }
+
     public void typeInputGender(Gender value) {
         if (value.equals(FEMALE)) {
             By byFemaleRadioButton = By.xpath(femaleRadioButton);
@@ -53,5 +57,23 @@ public class WeightCalculatorPage{
             WebElement webElementMaleRadioButton = driver.findElement(byMaleRadioButton);
             webElementMaleRadioButton.click();
         }
+    }
+
+    public void typeInputHeight(String height) {
+        By byInputHeight = By.xpath(xPathInputHeight);
+        WebElement webElementInputHeight = driver.findElement(byInputHeight);
+        webElementInputHeight.sendKeys(height);
+    }
+
+    public void typeInputWeight(String weight) {
+        By byInputWeight = By.xpath(xPathInputWeight);
+        WebElement webElementInputWeight = driver.findElement(byInputWeight);
+        webElementInputWeight.sendKeys(weight);
+    }
+
+    public void clickSubmitButton() {
+        By byCalculateWeight = By.xpath(calculateWeightButton);
+        WebElement webElementClickCalculateWeightButton = driver.findElement(byCalculateWeight);
+        webElementClickCalculateWeightButton.click();
     }
 }
