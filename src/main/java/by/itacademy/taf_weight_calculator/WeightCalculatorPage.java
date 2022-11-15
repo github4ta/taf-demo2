@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import static by.itacademy.taf_weight_calculator.Gender.FEMALE;
+
 public class WeightCalculatorPage {
     public final String URL = "https://svyatoslav.biz/testlab/wt/index.php";
     public final String IDEAL_MASS = "Идеальная масса тела";
@@ -30,6 +32,7 @@ public class WeightCalculatorPage {
     private String xPathNameBottomTable = "//tr[@height='50']/td";
     private String xPathResultMessage = "//tbody/tr[2]/td[2]";
     WebDriver driver;
+
     public WeightCalculatorPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -43,6 +46,7 @@ public class WeightCalculatorPage {
     public void openCalculatorPage() {
         driver.navigate().to(URL);
     }
+
     public void typeInputGender(Gender value) {
         if (value.equals(FEMALE)) {
             By byFemaleRadioButton = By.xpath(femaleRadioButton);
@@ -54,7 +58,6 @@ public class WeightCalculatorPage {
             webElementMaleRadioButton.click();
         }
     }
-}
 
     public void typeInputHeight(String height) {
         By byInputHeight = By.xpath(xPathInputHeight);
