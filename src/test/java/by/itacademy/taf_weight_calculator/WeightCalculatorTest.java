@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Assertions;
 
 public class WeightCalculatorTest extends BaseTest{
    @Test
-   public void testWeightWithLessValue(){
+    void testWeightWithLessValue(){
        WeightCalculatorPage page = new WeightCalculatorPage(driver);
        page.openCalculatorPage();
        page.typeInputName("Maria");
@@ -15,6 +15,18 @@ public class WeightCalculatorTest extends BaseTest{
        page.clickSubmitButton();
 
       Assertions.assertEquals(page.TOO_LITTLE_MASS, page.getResultMessage());
+   }
+   @Test
+   void testWeightWithInvalidData() {
+      WeightCalculatorPage page = new WeightCalculatorPage(driver);
+      page.openCalculatorPage();
+      page.typeInputName("Noname");
+      page.typeInputHeight("164");
+      page.typeInputWeight("-2");
+      page.typeInputGender(Gender.FEMALE);
+      page.clickSubmitButton();
+
+      Assertions.assertEquals(page.ERROR_MESSAGE_INCORRECT_MASS, page.getXPathResultMessageWithInvalidWeight());
    }
     @Test
     public void testWithEmptyValues() {
