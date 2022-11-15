@@ -1,5 +1,9 @@
 package by.itacademy.taf_weight_calculator;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
 public class WeightCalculatorPage{
     public final String IDEAL_MASS = "Идеальная масса тела";
     public final String A_LITTLE_MORE_MASS = "Умеренный избыток массы тела";
@@ -24,5 +28,13 @@ public class WeightCalculatorPage{
     private String xPathFemale = "//tbody/tr[2]/td[2]/form/table/tbody/tr[5]/td[2]";
     private String xPathNameBottomTable = "//tr[@height='50']/td";
     private String xPathResultMessage = "//tbody/tr[2]/td[2]";
-
+    WebDriver driver;
+    public WeightCalculatorPage(WebDriver driver) {
+        this.driver = driver;
+    }
+    public void typeInputName(String name){
+        By byInputName = By.xpath(xPathInputName);
+        WebElement webElementInputName = driver.findElement(byInputName);
+        webElementInputName.sendKeys(name);
+    }
 }
