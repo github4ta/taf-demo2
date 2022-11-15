@@ -30,7 +30,6 @@ public class WeightCalculatorPage {
     private String xPathNameBottomTable = "//tr[@height='50']/td";
     private String xPathResultMessage = "//tbody/tr[2]/td[2]";
     WebDriver driver;
-
     public WeightCalculatorPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -44,6 +43,18 @@ public class WeightCalculatorPage {
     public void openCalculatorPage() {
         driver.navigate().to(URL);
     }
+    public void typeInputGender(Gender value) {
+        if (value.equals(FEMALE)) {
+            By byFemaleRadioButton = By.xpath(femaleRadioButton);
+            WebElement webElementFemaleRadioButton = driver.findElement(byFemaleRadioButton);
+            webElementFemaleRadioButton.click();
+        } else {
+            By byMaleRadioButton = By.xpath(maleRadioButton);
+            WebElement webElementMaleRadioButton = driver.findElement(byMaleRadioButton);
+            webElementMaleRadioButton.click();
+        }
+    }
+}
 
     public void typeInputHeight(String height) {
         By byInputHeight = By.xpath(xPathInputHeight);
