@@ -4,7 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class WeightCalculatorPage{
+import static by.itacademy.taf_weight_calculator.Gender.FEMALE;
+import static by.itacademy.taf_weight_calculator.Gender.MALE;
+
+public class WeightCalculatorPage {
     public final String IDEAL_MASS = "Идеальная масса тела";
     public final String A_LITTLE_MORE_MASS = "Умеренный избыток массы тела";
     public final String TOO_MUCH_MASS = "Значительный избыток массы тела, тучность";
@@ -29,12 +32,26 @@ public class WeightCalculatorPage{
     private String xPathNameBottomTable = "//tr[@height='50']/td";
     private String xPathResultMessage = "//tbody/tr[2]/td[2]";
     WebDriver driver;
+
     public WeightCalculatorPage(WebDriver driver) {
         this.driver = driver;
     }
-    public void typeInputName(String name){
+
+    public void typeInputName(String name) {
         By byInputName = By.xpath(xPathInputName);
         WebElement webElementInputName = driver.findElement(byInputName);
         webElementInputName.sendKeys(name);
+    }
+
+    public void typeInputGender(Gender value) {
+        if (value.equals(FEMALE)) {
+            By byFemaleRadioButton = By.xpath(femaleRadioButton);
+            WebElement webElementFemaleRadioButton = driver.findElement(byFemaleRadioButton);
+            webElementFemaleRadioButton.click();
+        } else {
+            By byMaleRadioButton = By.xpath(maleRadioButton);
+            WebElement webElementMaleRadioButton = driver.findElement(byMaleRadioButton);
+            webElementMaleRadioButton.click();
+        }
     }
 }
