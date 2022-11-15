@@ -3,6 +3,7 @@ package by.itacademy.taf_weight_calculator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.devtools.v105.runtime.model.StackTraceId;
 
 import static by.itacademy.taf_weight_calculator.Gender.FEMALE;
 
@@ -75,5 +76,10 @@ public class WeightCalculatorPage {
         By byCalculateWeight = By.xpath(calculateWeightButton);
         WebElement webElementClickCalculateWeightButton = driver.findElement(byCalculateWeight);
         webElementClickCalculateWeightButton.click();
+    }
+    public String getResultMessage(){
+        By byResultMessage = By.xpath(xPathResultMessage);
+        WebElement webElementGetResultMessage = driver.findElement(byResultMessage);
+        return webElementGetResultMessage.getText();
     }
 }
