@@ -61,14 +61,14 @@ public class WeightCalculatorPage {
 
     public void typeInputHeight(String height) {
         By byInputHeight = By.xpath(xPathInputHeight);
-        WebElement webElementInputNWeight = driver.findElement(byInputHeight);
-        webElementInputNWeight.sendKeys(height);
+        WebElement webElementInputHeight = driver.findElement(byInputHeight);
+        webElementInputHeight.sendKeys(height);
     }
 
     public void typeInputWeight(String weight) {
         By byInputWeight = By.xpath(xPathInputWeight);
-        WebElement webElementInputHeight = driver.findElement(byInputWeight);
-        webElementInputHeight.sendKeys(weight);
+        WebElement webElementInputWeight = driver.findElement(byInputWeight);
+        webElementInputWeight.sendKeys(weight);
     }
 
     public void clickSubmitButton() {
