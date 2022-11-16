@@ -31,7 +31,7 @@ public class WeightCalculatorPage {
     private String xPathFemale = "//tbody/tr[2]/td[2]/form/table/tbody/tr[5]/td[2]";
     private String xPathNameBottomTable = "//tr[@height='50']/td";
     private String xPathResultMessage = "//tbody/tr[2]/td[2]";
-    private String xPathResultMessageWithInvalidWeight = "//table/tbody/tr[2]/td[2]/form/table/tbody/tr[1]";
+    private String xPathErrorMessage = "//table/tbody/tr[2]/td[2]/form/table/tbody/tr[1]";
     WebDriver driver;
 
     public WeightCalculatorPage(WebDriver driver) {
@@ -44,7 +44,7 @@ public class WeightCalculatorPage {
         webElementInputName.sendKeys(name);
     }
 
-    public void openCalculatorPage() {
+    public void openWeightCalculatorPage() {
         driver.navigate().to(URL);
     }
 
@@ -77,14 +77,15 @@ public class WeightCalculatorPage {
         WebElement webElementClickCalculateWeightButton = driver.findElement(byCalculateWeight);
         webElementClickCalculateWeightButton.click();
     }
-    public String getResultMessage(){
+    public String getResultMessage() {
         By byResultMessage = By.xpath(xPathResultMessage);
         WebElement webElementGetResultMessage = driver.findElement(byResultMessage);
         return webElementGetResultMessage.getText();
     }
-    public String getResultMessageWithInvalidWeight() {
-        By byResultMassageWithInvalidWeight = By.xpath(xPathResultMessageWithInvalidWeight);
-        WebElement webElementGetResultMessageWithInvalidWeight = driver.findElement(byResultMassageWithInvalidWeight);
-        return webElementGetResultMessageWithInvalidWeight.getText();
+
+    public String getErrorMessage() {
+        By byErrorMessage = By.xpath(xPathErrorMessage);
+        WebElement webElementGetErrorMessage = driver.findElement(byErrorMessage);
+        return webElementGetErrorMessage.getText();
     }
 }
