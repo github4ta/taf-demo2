@@ -29,17 +29,4 @@ public class WeightCalculatorTest extends BaseTest{
 
       Assertions.assertEquals(page.ERROR_MESSAGE_INCORRECT_MASS, page.getErrorMessage());
    }
-
-   @Test
-   void testWeightWithHeavyValue(){
-      WeightCalculatorPage page = new WeightCalculatorPage(driver);
-      page.openWeightCalculatorPage();
-      page.typeInputName("Noname");
-      page.typeInputHeight("164");
-      page.typeInputWeight("120");
-      page.clickInputGender(Gender.FEMALE);
-      page.clickSubmitButton();
-
-      Assertions.assertEquals(page.RESULT_MESSAGE_TOO_MUCH_MASS, page.getXPathResultMessageWeightWithHeavyValue());
-   }
 }
