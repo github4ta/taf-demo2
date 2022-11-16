@@ -5,19 +5,20 @@ import org.junit.jupiter.api.Assertions;
 
 public class WeightCalculatorTest extends BaseTest{
    @Test
-    void testWeightWithLessValue(){
-       WeightCalculatorPage page = new WeightCalculatorPage(driver);
-       page.openWeightCalculatorPage();
-       page.typeInputName("Maria");
-       page.typeInputHeight("150");
-       page.typeInputWeight("42");
-       page.clickInputGender(Gender.FEMALE);
-       page.clickSubmitButton();
+   void testWeightWithLessValue(){
+      WeightCalculatorPage page = new WeightCalculatorPage(driver);
+      page.openWeightCalculatorPage();
+      page.typeInputName("Maria");
+      page.typeInputHeight("150");
+      page.typeInputWeight("42");
+      page.clickInputGender(Gender.FEMALE);
+      page.clickSubmitButton();
 
       Assertions.assertEquals(page.ERROR_MESSAGE_TOO_LITTLE_MASS, page.getResultMessage());
    }
+
    @Test
-   void testWeightWithInvalidData() {
+   void testWeightWithInvalidData(){
       WeightCalculatorPage page = new WeightCalculatorPage(driver);
       page.openWeightCalculatorPage();
       page.typeInputName("Noname");
@@ -27,16 +28,5 @@ public class WeightCalculatorTest extends BaseTest{
       page.clickSubmitButton();
 
       Assertions.assertEquals(page.ERROR_MESSAGE_INCORRECT_MASS, page.getErrorMessage());
-   }
-   @Test
-   void testWithInvalidHeight(){
-      WeightCalculatorPage page = new WeightCalculatorPage(driver);
-      page.openWeightCalculatorPage();
-      page.typeInputName("Anna");
-      page.typeInputWeight("62");
-      page.clickInputGender(Gender.FEMALE);
-      page.clickSubmitButton();
-
-      Assertions.assertEquals(page.ERROR_MESSAGE_INCORRECT_HEIGHT, page.getErrorMessage());
    }
 }
