@@ -26,16 +26,14 @@ public class WeightCalculatorPage{
     private String calculateWeightButton = "//input[@type='submit']";
     private String xPathResultMessageWeightWithHeavyValue = "//body/table/tbody/tr[2]/td[2]";
 
-    private String xPathName = "//table[@border='0']/tbody/tr[2]/td[1]";
-    private String xPathHeight = "//table[@border='0']/tbody/tr[3]/td[1]";
-    private String xPathWeight = "//table[@border='0']/tbody/tr[4]/td[1]";
-    private String xPathGender = "//table[@border='0']/tbody/tr[5]/td[1]";
-    private String xPathMan = "//tbody/tr[2]/td[2]/form/table/tbody/tr[5]/td[2]";
-    private String xPathFemale = "//tbody/tr[2]/td[2]/form/table/tbody/tr[5]/td[2]";
-    private String xPathNameBottomTable = "//tr[@height='50']/td";
+    private String xPathName = "/html/body/table/tbody/tr[2]/td[2]/form/table/tbody/tr[2]/td[1] ";
+    private String xPathHeight = "/html/body/table/tbody/tr[2]/td[2]/form/table/tbody/tr[3]/td[1]";
+    private String xPathWeight = "/html/body/table/tbody/tr[2]/td[2]/form/table/tbody/tr[4]/td[1]";
+    private String xPathGender = "//tbody/tr[2]/td[2]/form/table/tbody/tr[5]/td[2]";
+    private String xPathNameBottomTable = "/html/body/table/tbody/tr[3]/td ";
     private String xPathResultMessage = "//tbody/tr[2]/td[2]";
     private String xPathErrorMessage = "//table/tbody/tr[2]/td[2]/form/table/tbody/tr[1]";
-    private String xPathMessageIdealMass="/html/body/table/tbody/tr[2]/td[2]";
+    private String xPathMessageIdealMass = "/html/body/table/tbody/tr[2]/td[2]";
     WebDriver driver;
 
     public WeightCalculatorPage(WebDriver driver){
@@ -99,7 +97,8 @@ public class WeightCalculatorPage{
         WebElement webElementMessageWeightWithHeavyValue = driver.findElement(byResultMessageWeightWithHeavyValue);
         return webElementMessageWeightWithHeavyValue.getText();
     }
-    public String  getXpathResultTestWithOnlyFemaleGender(){
+
+    public String getXpathResultTestWithOnlyFemaleGender(){
         By byResultTestWithOnlyFemaleGender = By.xpath(xPathMessageIdealMass);
         WebElement webElementMessageTestWithOnlyFemaleGender = driver.findElement(byResultTestWithOnlyFemaleGender);
         return webElementMessageTestWithOnlyFemaleGender.getText();
