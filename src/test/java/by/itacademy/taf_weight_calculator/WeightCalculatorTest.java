@@ -11,10 +11,10 @@ public class WeightCalculatorTest extends BaseTest{
        page.typeInputName("Maria");
        page.typeInputHeight("150");
        page.typeInputWeight("42");
-       page.typeInputGender(Gender.FEMALE);
+       page.clickInputGender(Gender.FEMALE);
        page.clickSubmitButton();
 
-      Assertions.assertEquals(page.TOO_LITTLE_MASS, page.getResultMessage());
+      Assertions.assertEquals(page.ERROR_MESSAGE_TOO_LITTLE_MASS, page.getResultMessage());
    }
    @Test
    void testWeightWithInvalidData() {
@@ -23,9 +23,9 @@ public class WeightCalculatorTest extends BaseTest{
       page.typeInputName("Noname");
       page.typeInputHeight("164");
       page.typeInputWeight("-2");
-      page.typeInputGender(Gender.FEMALE);
+      page.clickInputGender(Gender.FEMALE);
       page.clickSubmitButton();
 
-      Assertions.assertEquals(page.ERROR_MESSAGE_INCORRECT_MASS, page.getXPathResultMessageWithInvalidWeight());
+      Assertions.assertEquals(page.ERROR_MESSAGE_INCORRECT_MASS, page.getResultMessageWithInvalidWeight());
    }
 }

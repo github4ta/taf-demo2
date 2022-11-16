@@ -3,16 +3,15 @@ package by.itacademy.taf_weight_calculator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.devtools.v105.runtime.model.StackTraceId;
 
 import static by.itacademy.taf_weight_calculator.Gender.FEMALE;
 
 public class WeightCalculatorPage {
     public final String URL = "https://svyatoslav.biz/testlab/wt/index.php";
-    public final String IDEAL_MASS = "Идеальная масса тела";
-    public final String A_LITTLE_MORE_MASS = "Умеренный избыток массы тела";
-    public final String TOO_MUCH_MASS = "Значительный избыток массы тела, тучность";
-    public final String TOO_LITTLE_MASS = "Слишком малая масса тела";
+    public final String RESULT_MESSAGE_IDEAL_MASS = "Идеальная масса тела";
+    public final String RESULT_MESSAGE_A_LITTLE_MORE_MASS = "Умеренный избыток массы тела";
+    public final String RESULT_MESSAGE_TOO_MUCH_MASS = "Значительный избыток массы тела, тучность";
+    public final String ERROR_MESSAGE_TOO_LITTLE_MASS = "Слишком малая масса тела";
     public final String ERROR_MESSAGE_INCORRECT_HEIGHT = "Рост должен быть в диапазоне 50-300 см.";
     public final String ERROR_MESSAGE_NO_NAME = "Не указано имя.";
     public final String ERROR_MESSAGE_INCORRECT_MASS = "Вес должен быть в диапазоне 3-500 кг.";
@@ -49,7 +48,7 @@ public class WeightCalculatorPage {
         driver.navigate().to(URL);
     }
 
-    public void typeInputGender(Gender value) {
+    public void clickInputGender(Gender value) {
         if (value.equals(FEMALE)) {
             By byFemaleRadioButton = By.xpath(femaleRadioButton);
             WebElement webElementFemaleRadioButton = driver.findElement(byFemaleRadioButton);
@@ -83,7 +82,7 @@ public class WeightCalculatorPage {
         WebElement webElementGetResultMessage = driver.findElement(byResultMessage);
         return webElementGetResultMessage.getText();
     }
-    public String getXPathResultMessageWithInvalidWeight() {
+    public String getResultMessageWithInvalidWeight() {
         By byResultMassageWithInvalidWeight = By.xpath(xPathResultMessageWithInvalidWeight);
         WebElement webElementGetResultMessageWithInvalidWeight = driver.findElement(byResultMassageWithInvalidWeight);
         return webElementGetResultMessageWithInvalidWeight.getText();
