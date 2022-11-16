@@ -29,7 +29,7 @@ public class WeightCalculatorTest extends BaseTest{
       Assertions.assertEquals(page.ERROR_MESSAGE_INCORRECT_MASS, page.getErrorMessage());
    }
    @Test
-   void testWithInvalidHeight() {
+   void testWithInvalidHeight(){
       WeightCalculatorPage page = new WeightCalculatorPage(driver);
       page.openWeightCalculatorPage();
       page.typeInputName("Anna");
