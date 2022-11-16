@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 
 import static by.itacademy.taf_weight_calculator.Gender.FEMALE;
 
-public class WeightCalculatorPage {
+public class WeightCalculatorPage{
     public final String URL = "https://svyatoslav.biz/testlab/wt/index.php";
     public final String RESULT_MESSAGE_IDEAL_MASS = "Идеальная масса тела";
     public final String RESULT_MESSAGE_A_LITTLE_MORE_MASS = "Умеренный избыток массы тела";
@@ -16,12 +16,15 @@ public class WeightCalculatorPage {
     public final String ERROR_MESSAGE_NO_NAME = "Не указано имя.";
     public final String ERROR_MESSAGE_INCORRECT_MASS = "Вес должен быть в диапазоне 3-500 кг.";
     public final String ERROR_MESSAGE_NO_GENDER = "Не указан пол.";
+
+
     private String xPathInputName = "//input[@name='name']";
     private String xPathInputHeight = "//input[@name='height']";
     private String xPathInputWeight = "//input[@name='weight']";
     private String maleRadioButton = "//input[@type='radio' and @value='m']";
     private String femaleRadioButton = "//input[@type='radio' and @value='f']";
     private String calculateWeightButton = "//input[@type='submit']";
+    private String xPathResultMessageWeightWithHeavyValue = "//body/table/tbody/tr[2]/td[2]";
 
     private String xPathName = "//table[@border='0']/tbody/tr[2]/td[1]";
     private String xPathHeight = "//table[@border='0']/tbody/tr[3]/td[1]";
@@ -34,58 +37,65 @@ public class WeightCalculatorPage {
     private String xPathErrorMessage = "//table/tbody/tr[2]/td[2]/form/table/tbody/tr[1]";
     WebDriver driver;
 
-    public WeightCalculatorPage(WebDriver driver) {
+    public WeightCalculatorPage(WebDriver driver){
         this.driver = driver;
     }
 
-    public void typeInputName(String name) {
+    public void typeInputName(String name){
         By byInputName = By.xpath(xPathInputName);
         WebElement webElementInputName = driver.findElement(byInputName);
         webElementInputName.sendKeys(name);
     }
 
-    public void openWeightCalculatorPage() {
+    public void openWeightCalculatorPage(){
         driver.navigate().to(URL);
     }
 
-    public void clickInputGender(Gender value) {
-        if (value.equals(FEMALE)) {
+    public void clickInputGender(Gender value){
+        if(value.equals(FEMALE)){
             By byFemaleRadioButton = By.xpath(femaleRadioButton);
             WebElement webElementFemaleRadioButton = driver.findElement(byFemaleRadioButton);
             webElementFemaleRadioButton.click();
-        } else {
+        }else {
             By byMaleRadioButton = By.xpath(maleRadioButton);
             WebElement webElementMaleRadioButton = driver.findElement(byMaleRadioButton);
             webElementMaleRadioButton.click();
         }
     }
 
-    public void typeInputHeight(String height) {
+    public void typeInputHeight(String height){
         By byInputHeight = By.xpath(xPathInputHeight);
         WebElement webElementInputHeight = driver.findElement(byInputHeight);
         webElementInputHeight.sendKeys(height);
     }
 
-    public void typeInputWeight(String weight) {
+    public void typeInputWeight(String weight){
         By byInputWeight = By.xpath(xPathInputWeight);
         WebElement webElementInputWeight = driver.findElement(byInputWeight);
         webElementInputWeight.sendKeys(weight);
     }
 
-    public void clickSubmitButton() {
+    public void clickSubmitButton(){
         By byCalculateWeight = By.xpath(calculateWeightButton);
         WebElement webElementClickCalculateWeightButton = driver.findElement(byCalculateWeight);
         webElementClickCalculateWeightButton.click();
     }
-    public String getResultMessage() {
+
+    public String getResultMessage(){
         By byResultMessage = By.xpath(xPathResultMessage);
         WebElement webElementGetResultMessage = driver.findElement(byResultMessage);
         return webElementGetResultMessage.getText();
     }
 
-    public String getErrorMessage() {
+    public String getErrorMessage(){
         By byErrorMessage = By.xpath(xPathErrorMessage);
         WebElement webElementGetErrorMessage = driver.findElement(byErrorMessage);
         return webElementGetErrorMessage.getText();
+    }
+
+    public String getXPathResultMessageWeightWithHeavyValue(){
+        By byResultMessageWeightWithHeavyValue = By.xpath(xPathResultMessageWeightWithHeavyValue);
+        WebElement webElementMessageWeightWithHeavyValue = driver.findElement(byResultMessageWeightWithHeavyValue);
+        return webElementMessageWeightWithHeavyValue.getText();
     }
 }
