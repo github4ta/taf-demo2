@@ -16,6 +16,7 @@ public class WeightCalculatorPage{
     public final String ERROR_MESSAGE_NO_NAME = "Не указано имя.";
     public final String ERROR_MESSAGE_INCORRECT_MASS = "Вес должен быть в диапазоне 3-500 кг.";
     public final String ERROR_MESSAGE_NO_GENDER = "Не указан пол.";
+    public final String GENDER_FEMALE = "Female";
 
 
     private String xPathInputName = "//input[@name='name']";
@@ -35,6 +36,7 @@ public class WeightCalculatorPage{
     private String xPathNameBottomTable = "//tr[@height='50']/td";
     private String xPathResultMessage = "//tbody/tr[2]/td[2]";
     private String xPathErrorMessage = "//table/tbody/tr[2]/td[2]/form/table/tbody/tr[1]";
+    private String xPathMessageIdealMass ="/html/body/table/tbody/tr[2]/td[2]";
     WebDriver driver;
 
     public WeightCalculatorPage(WebDriver driver){
@@ -97,5 +99,11 @@ public class WeightCalculatorPage{
         By byResultMessageWeightWithHeavyValue = By.xpath(xPathResultMessageWeightWithHeavyValue);
         WebElement webElementMessageWeightWithHeavyValue = driver.findElement(byResultMessageWeightWithHeavyValue);
         return webElementMessageWeightWithHeavyValue.getText();
+    }
+
+    public String  getXpathResultTestWithOnlyFemaleGender(){
+        By byResultTestWithOnlyFemaleGender = By.xpath(xPathMessageIdealMass);
+        WebElement webElementMessageTestWithOnlyFemaleGender = driver.findElement(byResultTestWithOnlyFemaleGender);
+        return webElementMessageTestWithOnlyFemaleGender.getText();
     }
 }
