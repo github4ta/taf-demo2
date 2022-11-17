@@ -66,4 +66,15 @@ public class WeightCalculatorTest extends BaseTest{
 
       Assertions.assertEquals(page.ERROR_MESSAGE_INCORRECT_HEIGHT, page.getErrorMessage());
    }
+   @Test
+   void testGenderWithoutGender(){
+      WeightCalculatorPage page = new WeightCalculatorPage(driver);
+      page.openWeightCalculatorPage();
+      page.typeInputName("Maria");
+      page.typeInputHeight("164");
+      page.typeInputWeight("58");
+      page.clickSubmitButton();
+
+      Assertions.assertEquals(page.ERROR_MESSAGE_NO_GENDER,page.getErrorMessage());
+   }
 }
