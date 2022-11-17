@@ -103,4 +103,9 @@ public class WeightCalculatorPage{
         WebElement webElementMessageTestWithOnlyFemaleGender = driver.findElement(byResultTestWithOnlyFemaleGender);
         return webElementMessageTestWithOnlyFemaleGender.getText();
     }
+    public String getXpathResultTestGenderWithoutGender(){
+        By byResultTestGenderWithoutGender = By.xpath(xPathErrorMessage);
+        WebElement webElementMessageTestGenderWithoutGender = driver.findElement(byResultTestGenderWithoutGender);
+        return webElementMessageTestGenderWithoutGender.getText();
+    }
 }
